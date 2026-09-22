@@ -23,34 +23,33 @@ public class TankMoveEvent : MonoBehaviour
         }
     }
 
-    // void OnMove(InputValue value)
-    // {
-    //     // Debug.Log("Input value :" + value.Get<float>());    
-    //     move = value.Get<float>();
-    // }
-
-    // void OnRotate(InputValue value)
-    // {
-    //     rotate = value.Get<float>();
-    // }
-
-    public void OnTankMove(InputAction.CallbackContext context)
+    void OnMove(InputValue value)
     {
-        // Debug.Log("Move value: " + context.ReadValue<float>());    
-        move = context.ReadValue<float>();
+        // Debug.Log("Input value :" + value.Get<float>());    
+        move = value.Get<float>();
     }
 
-    public void OnTankRotate(InputAction.CallbackContext context)
+    void OnRotate(InputValue value)
     {
-        // Debug.Log("Rotate value: " + context.ReadValue<float>());    
-        rotate = context.ReadValue<float>();
+        rotate = value.Get<float>();
     }
+
+    // public void OnTankMove(InputAction.CallbackContext context)
+    // {
+    //     // Debug.Log("Move value: " + context.ReadValue<float>());    
+    //     move = context.ReadValue<float>();
+    // }
+
+    // public void OnTankRotate(InputAction.CallbackContext context)
+    // {
+    //     // Debug.Log("Rotate value: " + context.ReadValue<float>());    
+    //     rotate = context.ReadValue<float>();
+    // }
 
     void Move()
     {
         Vector3 moveDir = transform.forward * move * moveSpeed * Time.deltaTime;
         rb.MovePosition(rb.position + moveDir);
-        transform.Translate(rb.position + moveDir);
     }
 
     void Rotate()
