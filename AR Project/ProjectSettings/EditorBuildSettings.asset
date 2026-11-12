@@ -20,9 +20,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/10. Scenes/04. Draw Sphere.unity
     guid: 7e41e2df7fa379d43b7becaffc557778
-  - enabled: 1
+  - enabled: 0
     path: Assets/10. Scenes/05. PlaneTest.unity
     guid: fcd39d54dc7d28b4aa5b28cecf1dfc03
+  - enabled: 1
+    path: Assets/10. Scenes/06. Place Car.unity
+    guid: 27196312042095d4bbf1cbb9d6b282af
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f95b6037fc5d1d047b14d384ea9ea494, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
