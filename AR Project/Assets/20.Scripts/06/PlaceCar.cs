@@ -7,7 +7,11 @@ using UnityEngine.XR.ARSubsystems;
 public class PlaceCar : MonoBehaviour
 {
     public GameObject marker;
+    public GameObject myCar;
+
     ARRaycastManager arRayManager;
+    List<GameObject> carList = new List<GameObject>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,5 +36,27 @@ public class PlaceCar : MonoBehaviour
             marker.SetActive(true);
             marker.transform.position = hits[0].pose.position;
         }
+        else
+        {
+            marker.SetActive(false);
+        }
+    }
+
+    public void PlaceMyCar()
+    {
+        if(!marker.activeSelf) return;
+        GameObject go = Instantiate(myCar, marker.transform.position, marker.transform.rotation);
+        carList.Add(go);
+    }
+
+    public void RemoveLastCar()
+    {
+        int count = carList.Count;
+        if(count == 0) return;
+
+        GameObject go = carList[count-1];
+        Destroy(go);
+        carList.RemoveAt(count -1);
+
     }
 }
